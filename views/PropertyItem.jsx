@@ -1,34 +1,34 @@
 const React = require('react');
 
-function PropertyItem() {
-  return(
-<div data-id={property.id} className="js-pony col-12 col-md-6 col-lg-4 mb-4">
+function PropertyItem({ property }) {
+  return (
+    <div data-id={property.id} className="js-pony col-12 col-md-6 col-lg-4 mb-4">
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">
-            {property.}
+            {property.Type}
           </h5>
           <p className="card-text">
-            {}
+            {property.description}
           </p>
           <p className="mb-0">
             <button
               type="button"
               className="js-delete btn btn-outline-danger btn-sm me-2"
             >
-              Удалить запись
+              Удалить
             </button>
             <a
-              href={`/ponies/${pony.id}`}
+              href={`/properties/${property.id}`}
               className="btn btn-outline-primary btn-sm disabled"
             >
-              Узнать больше
+              Редактировать
             </a>
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 module.exports = PropertyItem;
