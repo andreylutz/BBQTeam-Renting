@@ -9,9 +9,11 @@ module.exports = {
       },
       typeId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: 'PropertyTypes',
           key: 'id',
+          as: 'typeId',
         },
       },
       rentalPrice: {

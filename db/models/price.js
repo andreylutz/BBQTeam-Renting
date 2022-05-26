@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // Prices have many types and property types
       Price.hasMany(models.PriceType, { foreignkey: 'priceTypeID' });
-      Price.hasMany(models.Property, { foreignKey: 'propertyID' });
+      Price.hasMany(models.Property, { foreignKey: 'propertyID', onDelete: 'CASCADE' });
     }
   }
   Price.init({

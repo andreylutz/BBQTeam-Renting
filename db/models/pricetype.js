@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class PriceType extends Model {
     /**
@@ -10,12 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // priceType has many prices as daily/nigtly/weekly rate might differ for different poropety
+      PriceType.hasMany(models.Prices, { foreignKey: 'priceTypeId' });
     }
   }
   PriceType.init({
     name: DataTypes.STRING,
-    days: DataTypes.INTEGER
+    days: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'PriceType',

@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Contact.hasMany(models.ContactType, { foreignkey: 'contactID' });
-      Contact.hasMany(models.User, { foreignkey: 'userId' });
+      Contact.belongsTo(models.ContactType, { foreignkey: 'contactID' });
+      Contact.belongsTo(models.User, { foreignkey: 'userId', onDelete: 'CASCADE' });
     }
   }
   Contact.init({

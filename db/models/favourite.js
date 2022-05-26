@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Favourite.hasMany(models.User, { foreignKey: 'userId' });
-      Favourite.hasMany(models.Property, { foreignKey: 'proepertyID' });
+      Favourite.belongsTo(models.User, { foreignKey: 'userId', onDelete: 'CASCADE' });
+      Favourite.belongsTo(models.Property, { foreignKey: 'proepertyID', onDelete: 'CASCADE' });
     }
   }
   Favourite.init({

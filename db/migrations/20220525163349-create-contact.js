@@ -12,13 +12,16 @@ module.exports = {
         references: {
           model: 'ContactTypes',
           key: 'id',
+          as: 'contactId',
         },
       },
       userId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         refrences: {
           model: 'Users',
           key: 'id',
+          as: 'userId',
         },
       },
       createdAt: {
@@ -31,7 +34,7 @@ module.exports = {
       },
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     await queryInterface.dropTable('Contacts');
   },
 };
