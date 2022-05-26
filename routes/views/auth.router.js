@@ -3,6 +3,7 @@ const ReactDOMServer = require('react-dom/server');
 const React = require('react');
 const authRouter = require('express').Router();
 const { User } = require('../../db/models');
+const config = require('../../config/config');
 
 const Signup = require('../../views/Signup');
 const Signin = require('../../views/Signin');
@@ -73,4 +74,15 @@ authRouter.route('/signin')
     res.redirect('/');
   });
 
+authRouter.route('/signout')
+  .get((req, res) => {
+    req.session.destroy((error) => {
+      if (error) {
+        return res.status(500).json({ message: 'Ошибка при удалении сессии' });
+      }
+      res
+        .clearCookie('sid')
+        .redirect('/auth/signin');
+    });
+  });
 module.exports = authRouter;

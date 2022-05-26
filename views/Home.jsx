@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ }) {
   return (
     <Layout>
-      <a href="/auth/signin">ВЫХОД</a>
+      <a href="/auth/signout">ВЫХОД из ПРОФИЛЯ</a>
     </Layout>
   );
 };
