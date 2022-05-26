@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // priceType has many prices as daily/nigtly/weekly rate might differ for different poropety
-      PriceType.hasMany(models.Prices, { foreignKey: 'priceTypeId' });
+      PriceType.hasMany(models.Price, { foreignKey: 'priceTypeId' });
     }
   }
   PriceType.init({
