@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ }) {
   return (
     <Layout>
-      <p>Привет!</p>
+      <a href="/auth/signin">ВЫХОД</a>
     </Layout>
   );
 };

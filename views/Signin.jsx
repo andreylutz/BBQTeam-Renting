@@ -17,8 +17,8 @@ module.exports = function Signin({ }) {
         <h1>АВТОРИЗАЦИЯ</h1>
         <fieldset>
           <form action="/auth/signin" method="POST">
-            <input type="email" required value="Логин" name="email" />
-            <input type="password" required value="Пароль" name="password" />
+            <input type="email" placeholder="Enter e-mail" name="email" />
+            <input type="password" placeholder="Enter Password" name="password" />
             <input type="submit" value="ВОЙТИ" />
           </form>
         </fieldset>

@@ -69,9 +69,7 @@ authRouter.route('/signin')
         .json({ message: 'Имя пользователя или пароль не верный' });
       return;
     }
-
     req.session.user = user;
-    res.json(isSame);
     res.redirect('/');
   });
 
