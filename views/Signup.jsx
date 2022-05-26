@@ -28,7 +28,7 @@ module.exports = function Signup({ }) {
           <p>
             У вас уже есть аккаунт?
             {' '}
-            <a href="#">Войти</a>
+            <a href="/auth/signin">Войти</a>
             .
           </p>
         </div>
