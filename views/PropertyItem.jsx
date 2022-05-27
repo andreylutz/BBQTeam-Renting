@@ -9,13 +9,13 @@ function PropertyItem({ property }) {
         <p className="card-text">{property.description}</p>
       </div>
       <div className="card-body mx-auto">
-        <p className="card-text">{`${property.rentalPrice}р.`}</p>
+        <p className="card-text"><b>{`${property.rentalPrice}\u20bd`}</b></p>
 
       </div>
       <div className="card-body mx-auto">
 
         <a
-          href={`/properties/${property.id}`}
+          href={`/admin/properties/${property.id}`}
           className="btn btn-outline-primary btn-sm me-2 mt-auto"
         >
           Редактировать
