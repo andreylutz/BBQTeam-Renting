@@ -1,10 +1,10 @@
 /* eslint-disable react/self-closing-comp */
 const React = require('react');
-const Layout = require('./Layout');
+const Layout2 = require('./Layout2');
 
 function EditPropertyPage({ property, propertyTypes, user }) {
   return (
-    <Layout>
+    <Layout2>
       <div className="row">
         <div className="col mx-auto">
           <form name="edit_property" className="col-8 ms-5 mt-5" method="POST" action="/admin/properties/">
@@ -38,7 +38,7 @@ function EditPropertyPage({ property, propertyTypes, user }) {
           <img src={property.photo} className="col-9 img-fluid img-rounded mx-auto" alt="..." />
         </div>
       </div>
-    </Layout>
+    </Layout2>
   );
 }
 

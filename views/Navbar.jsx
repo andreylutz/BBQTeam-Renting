@@ -12,7 +12,7 @@ function Navbar({ item }) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav justify-content-space-evenly">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/admin/properties">
                 <span className="sr-only">Администратор</span>
               </a>
             </li>
