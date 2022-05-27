@@ -44,6 +44,7 @@ async function init() {
   // console.log(arrAdresses[0].addresses);
   // const addr = arrAdresses.map((el) => el.address.split('\n').join(' '));
   // console.log(addr);
+  // ..
 
   for (let i = 0; i < arrAdresses.length; i += 1) {
     const place = arrAdresses[i].address;
