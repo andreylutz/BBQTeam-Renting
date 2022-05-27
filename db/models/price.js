@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // Prices have many types and property types
       Price.hasMany(models.PriceType, { foreignkey: 'priceTypeID' });
-      Price.hasMany(models.Property, { foreignKey: 'propertyID', onDelete: 'CASCADE' });
+      // Price.hasMany(models.Property, { foreignKey: 'propertyId', onDelete: 'CASCADE' });
     }
   }
   Price.init({
