@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');// НЕ РАБОТАЕТ С bcrypt
 const ReactDOMServer = require('react-dom/server');
 const React = require('react');
 const authRouter = require('express').Router();
-const e = require('express');
+const express = require('express');
 const { User } = require('../../db/models');
 const config = require('../../config/config');
 
