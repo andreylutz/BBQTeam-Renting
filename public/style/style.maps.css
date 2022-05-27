@@ -18,7 +18,9 @@
   gap: 20px;
   
 } */
-
+main {
+  overflow:auto;
+}
 
 .navbar-nav {
   display: flex;
@@ -39,6 +41,8 @@ padding-left: 50px;
 
 
 .yaMap {
+  position: relative;
+  left: 60%;
   margin-top: 20px;
   width: 500px;
   height: 500px;
