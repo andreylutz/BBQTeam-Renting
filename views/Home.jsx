@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ }) {
   return (
     <Layout>
+
       <form>
         <p>Выберите категорию:</p>
         <ol className="categories">
@@ -30,6 +31,9 @@ module.exports = function Home({ }) {
         {/* <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript" /> */}
         <script src="../public/js/application.js" />
       </div>
+
+      <a href="/auth/signout">ВЫХОД из ПРОФИЛЯ</a>
+
     </Layout>
   );
 };

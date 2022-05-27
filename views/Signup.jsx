@@ -4,23 +4,25 @@ const Layout = require('./Layout');
 module.exports = function Signup({ }) {
   return (
     <Layout>
+      <video autoPlay muted loop id="myVideo">
+        <source src="/vid/Saint Petersburg Aerial Timelab.pro (1).mp4" type="video/mp4" />
+      </video>
       <form action="" method="POST">
         <div className="container">
-          <h1>Регистрация</h1>
+          <h1 className="mainB">Регистрация</h1>
           <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
-          <hr />
+          <hr className="polosa" />
           <label htmlFor="username"><b>Name</b></label>
-          <input type="text" placeholder="User Name" name="username" required />
-          <label htmlFor="useremail"><b>e-mail</b></label>
-          <input type="text" placeholder="Enter e-mail" name="email" required />
+          <input className="auth" type="text" placeholder="User Name" name="username" required />
+          <label htmlFor="useremail"><b>E-mail</b></label>
+          <input className="auth" type="email" placeholder="Enter e-mail" name="email" required />
           <label htmlFor="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required />
-          <hr />
+          <input className="auth" type="password" placeholder="Enter Password" minLength="7" name="psw" required />
+          <hr className="polosa" />
           <p>
-            Здесь может быть
+            Здесь могла быть
             {' '}
-            <a href="#">Ваша реклама</a>
-            .
+            <a className="links" href="#">Ваша реклама</a>
           </p>
           <button type="submit" className="registerbtn">Зарегистрироваться</button>
         </div>
@@ -28,8 +30,7 @@ module.exports = function Signup({ }) {
           <p>
             У вас уже есть аккаунт?
             {' '}
-            <a href="/auth/signin">Войти</a>
-            .
+            <a className="links" href="/auth/signin">Войти</a>
           </p>
         </div>
       </form>
