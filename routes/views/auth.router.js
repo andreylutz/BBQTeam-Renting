@@ -8,6 +8,7 @@ const config = require('../../config/config');
 
 const Signup = require('../../views/Signup');
 const Signin = require('../../views/Signin');
+const Navbar = require('../../views/Navbar');
 // регистрация
 authRouter.route('/signup')
   .get((req, res) => {
@@ -33,7 +34,7 @@ authRouter.route('/signup')
     } catch (error) {
       res
         .status(500)
-        .json({ message: error.message });
+        .send('<script>alert(\'Пользователь с таким именем или e-mail уже зарегестрирован.\')</script>');
     }
   });
 // авторизация
@@ -61,7 +62,8 @@ authRouter.route('/signin')
     if (!user) {
       res
         .status(404)
-        .json({ message: 'Имя пользователя или пароль не верный' });
+        .send('<script>alert(\'Имя пользователя или пароль не верный\')</script>');
+      // .json({ message: 'Имя пользователя или пароль не верный' });
       return;
     }
 
@@ -77,8 +79,8 @@ authRouter.route('/signin')
     if (!isSame) {
       res
         .status(404)
-        .json({ message: 'Имя пользователя или пароль не верный' });
-      return;
+        .send('<script>alert(\'Имя пользователя или пароль не верный\')</script>');
+      // .json({ message: 'Имя пользователя или пароль не верный' });
     }
     req.session.user = user;
     res.redirect('/');
