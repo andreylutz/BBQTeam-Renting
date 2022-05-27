@@ -6,6 +6,9 @@ mapRouter.route('/')
   .get(async (req, res) => {
     const arrAdresses = await Property.findAll({ attributes: ['address', 'description', 'rentalPrice'] });
     res.json({ arrAdresses });
-  });
+  })
+  .post((req, res) => {
+    
+  })
 
 module.exports = mapRouter;

@@ -27,13 +27,12 @@ async function init() {
     const desc = arrAdresses[i].description;
     const price = arrAdresses[i].rentalPrice;
     const { photo } = arrAdresses[i];
+    
     ymaps.geocode(place)
       .then((res) => {
         const firstGeoObject = res.geoObjects.get(0);
         const coords = firstGeoObject.geometry.getCoordinates();
 
-        console.log(firstGeoObject);
-        console.log(`${coords} ${desc} ${price}`);
         const placemark = new ymaps.Placemark(
           coords,
           {
@@ -60,15 +59,6 @@ async function init() {
         map.geoObjects.add(placemark);
       });
   }
-  // for (let i = 0; i < arrAdresses)
-
-  // for (let j = 0; j < addr.length; j += 1) {
-  //   const placemark = new ymaps.Placemark(coords, {
-  //     balloonContent:
-  //   });
-  // }
-  // });
-  // }
 }
 
 ymaps.ready(init);

@@ -3,14 +3,17 @@ const React = require('react');
 const homeRouter = require('express').Router();
 
 const Home = require('../../views/Home');
-
+const { PropertyType } = require('../../db/models');
 
 homeRouter.route('/')
-  .get((req, res) => {
-    const homePage = React.createElement(Home, { });
+  .get(async (req, res) => {
+    const arrTypes = await PropertyType.findAll({ });
+    console.log(arrTypes);
+
+    const homePage = React.createElement(Home, { arrTypes });
     const htmlHome = ReactDOMServer.renderToStaticMarkup(homePage);
     res.write('<!DOCTYPE html>');
     res.end(htmlHome);
-});
+  });
 
 module.exports = homeRouter;
