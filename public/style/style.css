@@ -1,4 +1,4 @@
-* {box-sizing: border-box}
+/* * {box-sizing: border-box} */
 
 #myVideo {
   position: fixed;
@@ -13,13 +13,17 @@
 }
 
 .container {
+  color:rgb(242, 180, 100);
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
   position: relative;
   left: 35%;
   width: 30%;
   padding: 16px;
 }
 
-input[type=text], input[type=password], input[type=email]  {
+.auth[type=text], .auth[type=password], .auth[type=email]  {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -28,12 +32,12 @@ input[type=text], input[type=password], input[type=email]  {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password], input[type=email]:focus {
+.auth[type=text]:focus, .auth[type=password]:focus, .auth[type=email]:focus {
   background-color: #ddd;
   outline: none;
 }
 
-hr {
+.polosa {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
@@ -55,7 +59,7 @@ hr {
   opacity:1;
 }
 
-a {
+.links {
   text-decoration:none;
   color: #006fe5; 
   font-size: 1em;
@@ -66,8 +70,8 @@ a {
   -webkit-transition: all 0.5s ease;
           transition: all 0.5s ease;
 }
-a:hover {
-  color: #ffa000; /* Меняем цвет текста */
+.links:hover {
+  color: #ff6600; /* Меняем цвет текста */
   -webkit-text-shadow: 2px 2px 2px #000;
   -moz-text-shadow: 2px 2px 2px #000;
       text-shadow: 2px 2px 2px #000;
@@ -77,27 +81,7 @@ a:hover {
   text-align: center;
 }
 
-/*signin*/
-@charset "utf-8";
-
-html { 
-  background: url(../images/TebPWZ6.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-body {
-	color:rgb(255, 38, 0);
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-  font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-
-}
-
-
- h1 {
+ .mainB {
   margin: 15px 0;
   font-family: 'Playfair Display', serif;
   font-size: 40px;
@@ -111,19 +95,3 @@ fieldset {
 	position: relative;
 }
 
-/* } 
-@-webkit-keyframes slideOut{
-	0%{top:-30px; opacity: 0;}
-	100%{top:0px; opacity: 1;}
-}
-
-.vladmaxi-top a:hover{
-	background: #fff;
-}
-.vladmaxi-top span.right{
-	float: right;
-}
-.vladmaxi-top span.right a{
-	float: left;
-	display: block;
-}  */

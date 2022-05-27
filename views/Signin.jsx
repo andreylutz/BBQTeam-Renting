@@ -8,29 +8,29 @@ module.exports = function Signin({ }) {
         <source src="/vid/Saint Petersburg Aerial Timelab.pro (1).mp4" type="video/mp4" />
       </video>
       <div className="container">
-        <h1>Авторизация</h1>
+        <h1 className="mainB">Авторизация</h1>
         <p>Пожалуйста, заполните эту форму, чтобы войти в учетную запись.</p>
-        <hr />
+        <hr className="polosa" />
         {/* <fieldset> */}
         <form action="/auth/signin" method="POST">
           <label htmlFor="useremail"><b>E-mail</b></label>
-          <input type="email" placeholder="Enter e-mail" name="email" />
+          <input className="auth" type="email" placeholder="Enter e-mail" name="email" />
           <label htmlFor="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" />
-          <hr />
+          <input className="auth" type="password" placeholder="Enter Password" name="password" />
+          <hr className="polosa" />
           <p>
             Здесь могла быть
             {' '}
-            <a href="#">Ваша реклама</a>
+            <a className="links" href="#">Ваша реклама</a>
           </p>
           <button type="submit" className="registerbtn">Войти</button>
           <div className="boxing">
             <p>
               Мы будем очень рады, когда вы пройдете
               {' '}
-              <a href="/auth/signup">регистрацию</a>
+              <a className="links" href="/auth/signup">регистрацию</a>
             </p>
-            <a href="/" target="_blank" rel="noreferrer">На главную</a>
+            <a className="links" href="/" target="_blank" rel="noreferrer">На главную</a>
           </div>
         </form>
         {/* </fieldset> */}
