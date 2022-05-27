@@ -2,6 +2,25 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+const deleteButtons = document.querySelectorAll('.js-delete-button');
+
+if (deleteButtons) {
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', async (event) => {
+      const { id } = event.target.dataset;
+      const body = JSON.stringify({ id });
+
+      const response = await fetch(`/admin/properties/${id}`, {
+        method: 'DELETE',
+        body,
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const card = document.getElementById(`card_${id}`);
+      card.style.display = 'none';
+    });
+  });
+}
+
 async function init() {
   const map = new ymaps.Map('mapId', {
     center: [59.94627076602441, 30.359373585863374],

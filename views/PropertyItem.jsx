@@ -2,7 +2,7 @@ const React = require('react');
 
 function PropertyItem({ property }) {
   return (
-    <div className="card m-3" style={{ width: `${15}rem` }}>
+    <div className="card m-3" style={{ width: `${15}rem` }} id={`card_${property.id}`}>
       <img src={property.photo} className="img-thumbnail rounded float-start" alt="..." />
       <div className="card-body h-100">
         <p className="card-text"><b><small>{property.PropertyType.name}</small></b></p>
@@ -22,7 +22,8 @@ function PropertyItem({ property }) {
         </a>
         <button
           type="button"
-          className="js-delete btn btn-outline-danger btn-sm"
+          data-id={property.id}
+          className="js-delete btn btn-outline-danger btn-sm js-delete-button"
         >
           X
         </button>

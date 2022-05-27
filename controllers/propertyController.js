@@ -63,8 +63,16 @@ async function editProperty(req, res) {
   res.redirect('/admin/properties');
 }
 
+async function deleteProperty(req, res) {
+  const { id } = req.body;
+  const property = await Property.findByPk(id);
+  if (property) { await property.destroy(); }
+  res.json({ id });
+}
+
 module.exports = {
   getAllProperties,
   getProperty,
   editProperty,
+  deleteProperty,
 };
