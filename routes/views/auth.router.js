@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');// НЕ РАБОТАЕТ С bcrypt
 const ReactDOMServer = require('react-dom/server');
 const React = require('react');
 const authRouter = require('express').Router();
+const e = require('express');
 const { User } = require('../../db/models');
 const config = require('../../config/config');
 
@@ -20,11 +21,20 @@ authRouter.route('/signup')
     const mail = req.body.email;
     const pass = await bcrypt.hash(req.body.psw, 5);
     const admin = false;
-    const user = await User.create({
-      userName: name, userEmail: mail, userPassword: pass, isAdmin: admin,
-    });
-    req.session.user = user;
-    res.redirect('/');
+    // if (User.userName || User.userEmail) {
+    //   res.send({ message: 'uzer done' });
+    // } else {
+    try {
+      const user = await User.create({
+        userName: name, userEmail: mail, userPassword: pass, isAdmin: admin,
+      });
+      req.session.user = user;
+      res.redirect('/');
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: error.message });
+    }
   });
 // авторизация
 authRouter.route('/signin')
