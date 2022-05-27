@@ -17,11 +17,11 @@ module.exports = function Layout({ children }) {
 
       </head>
       <body>
-        <Navbar />
+
         <main>
           {children}
         </main>
-        <Footer />
+
       </body>
     </html>
   );
