@@ -2,32 +2,33 @@ const React = require('react');
 
 function PropertyItem({ property }) {
   return (
-    <div data-id={property.id} className="js-pony col-12 col-md-6 col-lg-4 mb-4">
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">
-            {property.Type}
-          </h5>
-          <p className="card-text">
-            {property.description}
-          </p>
-          <p className="mb-0">
-            <button
-              type="button"
-              className="js-delete btn btn-outline-danger btn-sm me-2"
-            >
-              Удалить
-            </button>
-            <a
-              href={`/properties/${property.id}`}
-              className="btn btn-outline-primary btn-sm disabled"
-            >
-              Редактировать
-            </a>
-          </p>
-        </div>
+    <div className="card m-3" style={{ width: `${15}rem` }}>
+      <img src={property.photo} className="img-thumbnail rounded float-start" alt="..." />
+      <div className="card-body h-100">
+        <p className="card-text"><b><small>{property.PropertyType.name}</small></b></p>
+        <p className="card-text">{property.description}</p>
+      </div>
+      <div className="card-body mx-auto">
+        <p className="card-text">{`${property.rentalPrice}р.`}</p>
+
+      </div>
+      <div className="card-body mx-auto">
+
+        <a
+          href={`/properties/${property.id}`}
+          className="btn btn-outline-primary btn-sm me-2 mt-auto"
+        >
+          Редактировать
+        </a>
+        <button
+          type="button"
+          className="js-delete btn btn-outline-danger btn-sm"
+        >
+          X
+        </button>
       </div>
     </div>
+
   );
 }
 
