@@ -5,7 +5,7 @@ module.exports = function Home({ }) {
   return (
     <Layout>
 
-      <form>
+      <form className="mainlen">
         <p>Выберите категорию:</p>
         <ol className="categories">
           <li>
