@@ -1,9 +1,9 @@
 const React = require('react');
-const Layout = require('./Layout');
+const Auth = require('./Auth');
 
 module.exports = function Signin({ }) {
   return (
-    <Layout>
+    <Auth>
       <video autoPlay muted loop id="myVideo">
         <source src="/vid/Saint Petersburg Aerial Timelab.pro (1).mp4" type="video/mp4" />
       </video>
@@ -35,6 +35,6 @@ module.exports = function Signin({ }) {
         </form>
         {/* </fieldset> */}
       </div>
-    </Layout>
+    </Auth>
   );
 };
