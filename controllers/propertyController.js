@@ -42,7 +42,29 @@ async function getProperty(req, res) {
   });
 }
 
+async function editProperty(req, res) {
+  const {
+    desc,
+    photo,
+    price,
+    propId,
+  } = req.body;
+
+  const property = await Property.findByPk(propId);
+  console.log(property);
+  await property.update({
+    description: desc,
+    photo,
+    rentalPrice: price,
+  });
+  // await property.save();
+
+  console.log(desc, photo, price, propId);
+  res.redirect('/admin/properties');
+}
+
 module.exports = {
   getAllProperties,
   getProperty,
+  editProperty,
 };

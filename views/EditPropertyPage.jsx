@@ -5,10 +5,11 @@ const Layout = require('./Layout');
 function EditPropertyPage({ property, propertyTypes, user }) {
   return (
     <Layout>
-      <form name="edit_property" className="col-4 ms-5 mt-5" method="PATCH" action={`/admin/properties/${property.id}`}>
+      <form name="edit_property" className="col-4 ms-5 mt-5" method="POST" action="/admin/properties/">
         <div className="mb-3">
           <textarea name="desc" rows="4" value={property.description} className="overflow-auto form-control" id="description"></textarea>
         </div>
+        <input name="propId" type="hidden" value={property.id} />
         <div className="input-group mb-3">
           <label className="input-group-text" htmlFor="inputGroupSelect01">Тип жилья</label>
 
@@ -21,7 +22,7 @@ function EditPropertyPage({ property, propertyTypes, user }) {
           <div className="input-group mb-3 mt-3">
             <span className="input-group-text">&#x20bd;</span>
             <span className="input-group-text">0</span>
-            <input type="text" className="form-control" aria-label="Цена в рублях за месяц" />
+            <input type="text" name="price" value={property.rentalPrice} className="form-control" aria-label="Цена в рублях за месяц" />
           </div>
           <img src={property.photo} className="col-9 img-fluid img-rounded mx-auto" alt="..." />
           <div className="input-group mb-3 mt-3">

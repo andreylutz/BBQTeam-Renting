@@ -1,10 +1,10 @@
 const adminRouter = require('express').Router();
-const { getAllProperties, getProperty } = require('../../controllers/propertyController');
+const { getAllProperties, getProperty, editProperty } = require('../../controllers/propertyController');
 
 adminRouter.get('/properties', getAllProperties);
 
 adminRouter.get('/properties/:id', getProperty);
 
-adminRouter.patch('properties/:id');
+adminRouter.post('/properties', editProperty);
 
 module.exports = adminRouter;
