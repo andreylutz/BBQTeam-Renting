@@ -1,17 +1,17 @@
 const React = require('react');
-const { render } = require('react-dom');
 const ReactDOMServer = require('react-dom/server');
 
-function renderComponent(reactComponent, props = {}, options = {doctype: true}) {
+function renderComponent(reactComponent, props = {}, options = { doctype: true }) {
   const reactElement = React.createElement(reactComponent, {
     ...this.app.locals,
     ...this.locals,
-    ...props
+    ...props,
   });
   const html = ReactDOMServer.renderToStaticMarkup(reactElement);
   if (options.doctype) {
-    this.write(html);
+    this.write('<!DOCTYPE html>');
   }
+  this.end(html);
 }
 
 function ssr(req, res, next) {
