@@ -1,5 +1,6 @@
-const { Property } = require('../db/models');
+const { Property, PropertyType } = require('../db/models');
 const PropListPage = require('../views/PropListPage');
+const EditPropertyPage = require('../views/EditPropertyPage');
 
 async function getAllProperties(req, res) {
   let properties;
@@ -7,7 +8,6 @@ async function getAllProperties(req, res) {
     properties = await Property.findAll(
       { include: [Property.Type] },
     );
-    console.log(properties[0].PropertyType);
   } catch (error) {
     res.status(500);
     res.json({ error: error.message });
@@ -20,4 +20,59 @@ async function getAllProperties(req, res) {
   });
 }
 
-module.exports = getAllProperties;
+async function getProperty(req, res) {
+  let property;
+  let propertyTypes;
+  try {
+    property = await Property.findByPk(
+      req.params.id,
+      { include: [Property.Type] },
+    );
+    propertyTypes = await PropertyType.findAll();
+  } catch (error) {
+    res.status(500);
+    res.json({ error: error.message });
+    return;
+  }
+
+  res.renderComponent(EditPropertyPage, {
+    property,
+    propertyTypes,
+    user: req.session.user,
+  });
+}
+
+async function editProperty(req, res) {
+  const {
+    desc,
+    photo,
+    price,
+    propId,
+  } = req.body;
+
+  const property = await Property.findByPk(propId);
+  console.log(property);
+  await property.update({
+    description: desc,
+    photo,
+    rentalPrice: price,
+  });
+  // await property.save();
+
+  console.log(desc, photo, price, propId);
+  res.redirect('/admin/properties');
+}
+
+async function deleteProperty(req, res) {
+  const { id } = req.body;
+  const property = await Property.findByPk(id);
+  if (property) { await property.destroy(); }
+  res.json({ id });
+}
+
+module.exports = {
+  getAllProperties,
+  getProperty,
+  editProperty,
+  deleteProperty,
+};

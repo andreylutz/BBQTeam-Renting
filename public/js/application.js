@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
+
 // const formCategories = document.querySelector('.js-categoriesForm');
 
 // formCategories.addEventListener('submit', async (event) => {
@@ -22,6 +23,26 @@
 //     headers: { 'Content-Type': 'application/json' },
 //   });
 // });
+
+const deleteButtons = document.querySelectorAll('.js-delete-button');
+
+if (deleteButtons) {
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', async (event) => {
+      const { id } = event.target.dataset;
+      const body = JSON.stringify({ id });
+
+      const response = await fetch(`/admin/properties/${id}`, {
+        method: 'DELETE',
+        body,
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const card = document.getElementById(`card_${id}`);
+      card.style.display = 'none';
+    });
+  });
+}
+
 
 async function init() {
   const map = new ymaps.Map('mapId', {

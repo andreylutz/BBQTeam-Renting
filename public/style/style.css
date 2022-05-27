@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   
 }
@@ -24,4 +24,102 @@
   width: 500px;
   height: 500px;
   background-color: gray;
+} */
+
+/* * {box-sizing: border-box} */
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
+
+.boxing{
+  width: 150%;
+}
+
+.container {
+  color:rgb(255, 255, 255);
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+  position: relative;
+  left: 35%;
+  width: 30%;
+  padding: 16px;
+}
+
+.auth[type=text], .auth[type=password], .auth[type=email]  {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.auth[type=text]:focus, .auth[type=password]:focus, .auth[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.polosa {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.registerbtn {
+  position: relative;
+  left: 25%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+.links {
+  text-decoration:none;
+  color: #67a821; 
+  font-size: 1em;
+  font-weight: bold;
+  padding: 20px 0px;
+  text-transform: uppercase;
+  line-height: 1;
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+.links:hover {
+  color: #ff6600; /* Меняем цвет текста */
+  -webkit-text-shadow: 2px 2px 2px #000;
+  -moz-text-shadow: 2px 2px 2px #000;
+      text-shadow: 2px 2px 2px #000;
+}
+
+.signin {
+  text-align: center;
+}
+
+ .mainB {
+  margin: 15px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+fieldset {
+	border: none;
+	padding: 20px;
+	position: relative;
+}
+/*---------rega------------------*/
