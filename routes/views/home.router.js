@@ -8,7 +8,6 @@ const { PropertyType } = require('../../db/models');
 homeRouter.route('/')
   .get(async (req, res) => {
     const arrTypes = await PropertyType.findAll({ });
-    console.log(arrTypes);
 
     const homePage = React.createElement(Home, { arrTypes });
     const htmlHome = ReactDOMServer.renderToStaticMarkup(homePage);

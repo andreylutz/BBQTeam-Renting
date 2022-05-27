@@ -4,29 +4,17 @@ const Layout = require('./Layout');
 module.exports = function Home({ arrTypes }) {
   return (
     <Layout>
-      <form>
+      <form method="GET" action="" className="js-categoriesForm">
         <p>Выберите категорию:</p>
         <ol className="categories">
           {
             arrTypes.map((type) => (
-              <li>
-                <input type="checkbox" name={type.id} />
+              <li key={type.id}>
+                <input type="checkbox" className="js-checkbox" id={type.id} name={type.id} checked />
                 {type.name}
               </li>
             ))
           }
-          {/* <li>
-            <input type="checkbox" name="rooms" />
-            Комнаты
-          </li>
-          <li>
-            <input type="checkbox" name="flats" />
-            Квартиры
-          </li>
-          <li>
-            <input type="checkbox" name="houses" />
-            Дома
-          </li> */}
         </ol>
         <input type="submit" />
       </form>

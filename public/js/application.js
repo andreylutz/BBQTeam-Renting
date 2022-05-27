@@ -2,6 +2,27 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+
+// const formCategories = document.querySelector('.js-categoriesForm');
+
+// formCategories.addEventListener('submit', async (event) => {
+//   event.preventDefault();
+//   const checboxes = document.querySelectorAll('.js-checkbox');
+//   const arrCheckboxes = Array.from(checboxes);
+
+//   const checkedBoxes = arrCheckboxes.filter((el) => el.checked);
+//   console.log(checkedBoxes);
+
+//   const checBoxIdArr = checkedBoxes.map((el) => el.name);
+//   console.log(checBoxIdArr);
+//   const body = JSON.stringify({ checBoxIdArr });
+//   const response = await fetch('/api/map', {
+//     method: 'POST',
+//     body,
+//     headers: { 'Content-Type': 'application/json' },
+//   });
+// });
+
 async function init() {
   const map = new ymaps.Map('mapId', {
     center: [59.94627076602441, 30.359373585863374],
@@ -15,7 +36,9 @@ async function init() {
   // map.controls.remove('zoomControl'); // удаляем контрол зуммирования
   // map.controls.remove('rulerControl'); // удаляем контрол правил
 
-  const response = await fetch('/api/map');
+  const response = await fetch(
+    '/api/map' + location.search,
+  );
   const { arrAdresses } = await response.json();
   console.log(arrAdresses);
   // console.log(arrAdresses[0].addresses);
@@ -27,7 +50,7 @@ async function init() {
     const desc = arrAdresses[i].description;
     const price = arrAdresses[i].rentalPrice;
     const { photo } = arrAdresses[i];
-    
+
     ymaps.geocode(place)
       .then((res) => {
         const firstGeoObject = res.geoObjects.get(0);
